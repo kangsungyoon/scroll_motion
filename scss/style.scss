@@ -11,6 +11,7 @@ body {
 		width: 60vw;
 		height: 60vh;
 		position: relative;
+		perspective: 900px;
 
 		.top {
 			width: 0%;
@@ -43,6 +44,49 @@ body {
 			position: absolute;
 			left: 0;
 			bottom: 0;
+		}
+
+		.open {
+			display: inline-block;
+			width: 120px;
+			height: 40px;
+			background: #111;
+			font: bold 14px/40px 'arial';
+			color: #fff;
+			border: none;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -60px;
+			margin-top: -20px;
+			cursor: pointer;
+			transition: 0.5s;
+
+			&.off {
+				opacity: 0;
+			}
+
+			&:hover {
+				background: hotpink;
+			}
+		}
+
+		.content {
+			width: 100%;
+			height: 100%;
+			background: #111;
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			z-index: -1;
+			transform: rotateY(220deg);
+			transition: opacity 1s, transform 1s;
+
+			&.on {
+				opacity: 1;
+				transform: rotateY(0deg);
+			}
 		}
 	}
 }
