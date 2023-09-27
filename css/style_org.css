@@ -20,10 +20,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 body main {
   width: 60vw;
   height: 60vh;
+  min-width: 600px;
+  min-height: 400px;
   position: relative;
   perspective: 900px;
 }
@@ -95,12 +98,15 @@ body main .content {
   transition: opacity 1s, transform 1s;
 }
 body main .content h2 {
-  font: bold 100px/1 "arial";
+  width: 100%;
+  font: bold 3vw/1 "arial";
   color: #fff;
-  opacity: 0;
-  transform: translateX(300px);
-  transition: 1s 1s;
   margin-bottom: 40px;
+}
+body main .content h2 span {
+  opacity: 0;
+  transform: scale(2);
+  transition-duration: 0.5s;
 }
 body main .content p {
   width: 80%;
@@ -126,11 +132,14 @@ body main .content.on {
   opacity: 1;
   transform: rotateY(0deg);
 }
-body main .content.on h2,
 body main .content.on p,
 body main .content.on .close {
   opacity: 1;
   transform: translateX(0px);
+}
+body main .content.on h2 span {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /*# sourceMappingURL=style_org.css.map */
