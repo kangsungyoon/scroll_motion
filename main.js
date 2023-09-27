@@ -1,5 +1,6 @@
 const main = document.querySelector('main');
 const [top, right, bottom, left, open, content] = main.children;
+const close = content.querySelector('.close');
 const speed = 500;
 
 open.addEventListener('click', () => {
@@ -41,4 +42,16 @@ open.addEventListener('click', () => {
 			},
 		}
 	);
+});
+
+close.addEventListener('click', () => {
+	content.classList.remove('on');
+
+	setTimeout(() => {
+		new Anime(top, { width: '0%' });
+		new Anime(bottom, { width: '0%' });
+		new Anime(left, { height: '0%' });
+		new Anime(right, { height: '0%' });
+		open.classList.remove('off');
+	}, 1000);
 });
