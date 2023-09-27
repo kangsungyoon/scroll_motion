@@ -1,7 +1,10 @@
 const main = document.querySelector('main');
 const [top, right, bottom, left, open, content] = main.children;
 const close = content.querySelector('.close');
+const h2 = content.querySelector('h2');
 const speed = 500;
+
+splitText(h2, 0.1);
 
 open.addEventListener('click', () => {
 	new Anime(
@@ -55,3 +58,16 @@ close.addEventListener('click', () => {
 		open.classList.remove('off');
 	}, 1000);
 });
+
+function splitText(selector, interval = 0) {
+	let count = 0;
+	const txt = selector.innerText;
+	selector.innerHTML = '';
+	for (const el of txt) {
+		const span = document.createElement('span');
+		span.innerText = el;
+		span.style.transitionDelay = `${interval * count}s`;
+		selector.append(span);
+		count++;
+	}
+}
