@@ -5,12 +5,21 @@
 const secs = document.querySelectorAll('section');
 const h1 = secs[0].querySelector('h1');
 const h1_2 = secs[1].querySelector('h1');
-const baseLine = -window.innerHeight / 2;
+let baseLine = 0;
+
+//baseLine값 자체를 처음 로딩시 한번 초기화
+baseLine = -window.innerHeight / 2;
+
+//혹시라도 그 이후에 브라우저 리사이즈가 되면 전역변수 baseLine값을 계속해서 갱신
+window.addEventListener('resize', () => {
+	baseLine = -window.innerHeight / 2;
+});
 
 window.addEventListener('scroll', () => {
-	//const scrolled1 = setScroll(secs[0]);
-	h1.style.transform = `translateX(${setScroll(secs[0])}px)`;
-	h1_2.style.transform = `translateX(${setScroll(secs[1], -window.innerHeight / 2) / 2}px)`;
+	const scrolled1 = setScroll(secs[0]);
+	const scrolled2 = setScroll(secs[1], baseLine);
+	h1.style.transform = `translateX(${scrolled1}px)`;
+	h1_2.style.transform = `translateX(${scrolled2}px)`;
 });
 
 //첫번째인수로 기준점이 될 frame요소 지정, 두번째 인수로 스크롤 모션이 적용될 커스텀 시점지정 (기본값 0)
