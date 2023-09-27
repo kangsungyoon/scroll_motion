@@ -10,7 +10,7 @@ const baseLine = -window.innerHeight / 2;
 window.addEventListener('scroll', () => {
 	//const scrolled1 = setScroll(secs[0]);
 	h1.style.transform = `translateX(${setScroll(secs[0])}px)`;
-	h1_2.style.transform = `translateX(${setScroll(secs[1], -window.innerHeight / 2)}px)`;
+	h1_2.style.transform = `translateX(${setScroll(secs[1], -window.innerHeight / 2) / 2}px)`;
 });
 
 //첫번째인수로 기준점이 될 frame요소 지정, 두번째 인수로 스크롤 모션이 적용될 커스텀 시점지정 (기본값 0)
