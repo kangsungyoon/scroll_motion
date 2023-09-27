@@ -14,13 +14,49 @@ a {
   text-decoration: none;
 }
 
-article {
-  width: 200px;
-  height: 200px;
-  background: aqua;
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main {
+  width: 60vw;
+  height: 60vh;
+  position: relative;
+}
+body main .top {
+  width: 0%;
+  height: 1px;
+  background: #000;
   position: absolute;
   top: 0;
   left: 0;
+}
+body main .right {
+  width: 1px;
+  height: 0%;
+  background: #000;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+body main .bottom {
+  width: 0%;
+  height: 1px;
+  background: #000;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+body main .left {
+  width: 1px;
+  height: 0%;
+  background: #000;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
 /*# sourceMappingURL=style_org.css.map */
